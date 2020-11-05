@@ -25,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(\Statamic\Contracts\Assets\Asset::class, \App\CustomAsset::class);
+        $this->app->bind(\Statamic\Contracts\Entries\Entry::class, \App\CustomEntry::class);
     }
 }
