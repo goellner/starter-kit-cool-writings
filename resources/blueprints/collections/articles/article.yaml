@@ -7,7 +7,10 @@ sections:
         handle: title
         field:
           type: text
+          required: true
           display: Title
+          validate:
+            - required
       -
         handle: content
         field:
@@ -30,3 +33,47 @@ sections:
           type: users
           display: Author
           default: current
+      -
+        handle: should_not_be_in_related
+        field:
+          input_type: text
+          display: 'Should not be in related'
+          type: text
+          icon: text
+          listable: hidden
+      -
+        handle: entries
+        field:
+          mode: default
+          collections:
+            - pages
+          display: Entries
+          type: entries
+          icon: entries
+          listable: hidden
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: date
+        field:
+          type: date
+          required: true
+          validate:
+            - required
+      -
+        handle: topics
+        field:
+          type: terms
+          taxonomies:
+            - topics
+          display: Topics
+          mode: select
